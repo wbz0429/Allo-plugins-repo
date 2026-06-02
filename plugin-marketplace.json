@@ -11,11 +11,19 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@playwright/mcp"],
+        "args": [
+          "-y",
+          "@playwright/mcp"
+        ],
         "env": {}
       },
       "tools": [],
-      "permissions": ["browser", "network", "screenshots", "local-web-targets"],
+      "permissions": [
+        "browser",
+        "network",
+        "screenshots",
+        "local-web-targets"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
@@ -32,14 +40,24 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-github"],
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github"
+        ],
         "env": {
           "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_TOKEN"
         }
       },
       "tools": [],
-      "permissions": ["github-api", "network", "repository-metadata", "repository-write"],
-      "required_env": ["GITHUB_TOKEN"],
+      "permissions": [
+        "github-api",
+        "network",
+        "repository-metadata",
+        "repository-write"
+      ],
+      "required_env": [
+        "GITHUB_TOKEN"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -64,11 +82,19 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-filesystem", "$ALLO_WORKSPACE_PATH"],
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "$ALLO_WORKSPACE_PATH"
+        ],
         "env": {}
       },
       "tools": [],
-      "permissions": ["filesystem-read", "filesystem-write", "workspace-only"],
+      "permissions": [
+        "filesystem-read",
+        "filesystem-write",
+        "workspace-only"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
@@ -131,8 +157,15 @@
           "description": "Query a specific member's device list."
         }
       ],
-      "permissions": ["enterprise-data", "network", "user-analytics", "audit-logs"],
-      "required_env": ["DFCODE_API_KEY"],
+      "permissions": [
+        "enterprise-data",
+        "network",
+        "user-analytics",
+        "audit-logs"
+      ],
+      "required_env": [
+        "DFCODE_API_KEY"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -146,6 +179,182 @@
       ],
       "homepage": "https://admin.dfcode.com",
       "notes": "SSE-based MCP connection. The API key is sent as X-API-Key header during SSE handshake and JSON-RPC requests.",
+      "source": "marketplace"
+    },
+    {
+      "id": "tavily-search",
+      "name": "tavily-search",
+      "version": "1.0.0",
+      "description": "AI-optimized search engine that delivers comprehensive, accurate, and trusted results. Designed specifically for AI agents and RAG pipelines with structured JSON responses.",
+      "author": "allo-official",
+      "type": "mcp",
+      "command": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "tavily-mcp@latest"
+        ],
+        "env": {
+          "TAVILY_API_KEY": ""
+        }
+      },
+      "tools": [],
+      "permissions": [
+        "search",
+        "network"
+      ],
+      "required_env": [
+        "TAVILY_API_KEY"
+      ],
+      "optional_env": [],
+      "credentials": [
+        {
+          "key": "TAVILY_API_KEY",
+          "label": "Tavily API Key",
+          "description": "API key for Tavily search service.",
+          "required": true,
+          "secret": true,
+          "docs_url": "https://app.tavily.com/home"
+        }
+      ],
+      "homepage": "https://tavily.com",
+      "notes": "Requires TAVILY_API_KEY before runtime use.",
+      "source": "marketplace"
+    },
+    {
+      "id": "firecrawl",
+      "name": "firecrawl",
+      "version": "1.0.0",
+      "description": "Web scraping and crawling API that converts any website into clean, LLM-ready markdown. Supports JavaScript rendering, pagination, and structured data extraction.",
+      "author": "allo-official",
+      "type": "mcp",
+      "command": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "firecrawl-mcp@latest"
+        ],
+        "env": {
+          "FIRECRAWL_API_KEY": ""
+        }
+      },
+      "tools": [],
+      "permissions": [
+        "web-scraping",
+        "network"
+      ],
+      "required_env": [
+        "FIRECRAWL_API_KEY"
+      ],
+      "optional_env": [],
+      "credentials": [
+        {
+          "key": "FIRECRAWL_API_KEY",
+          "label": "Firecrawl API Key",
+          "description": "API key for Firecrawl web scraping service.",
+          "required": true,
+          "secret": true,
+          "docs_url": "https://www.firecrawl.dev/app/api-keys"
+        }
+      ],
+      "homepage": "https://www.firecrawl.dev",
+      "notes": "Requires FIRECRAWL_API_KEY before runtime use.",
+      "source": "marketplace"
+    },
+    {
+      "id": "jina-ai-reader",
+      "name": "jina-ai-reader",
+      "version": "1.0.0",
+      "description": "Extract clean, readable content from any URL using Jina AI's Reader API. Returns markdown-formatted text optimized for LLM consumption with support for PDFs and dynamic pages.",
+      "author": "allo-official",
+      "type": "mcp",
+      "command": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "jina-mcp@latest"
+        ],
+        "env": {
+          "JINA_API_KEY": ""
+        }
+      },
+      "tools": [],
+      "permissions": [
+        "web-reading",
+        "network"
+      ],
+      "required_env": [
+        "JINA_API_KEY"
+      ],
+      "optional_env": [],
+      "credentials": [
+        {
+          "key": "JINA_API_KEY",
+          "label": "Jina AI API Key",
+          "description": "API key for Jina AI Reader service.",
+          "required": true,
+          "secret": true,
+          "docs_url": "https://jina.ai/reader"
+        }
+      ],
+      "homepage": "https://jina.ai",
+      "notes": "Requires JINA_API_KEY before runtime use.",
+      "source": "marketplace"
+    },
+    {
+      "id": "duckduckgo-search",
+      "name": "duckduckgo-search",
+      "version": "1.0.0",
+      "description": "Privacy-focused web search powered by DuckDuckGo. No API key required. Returns organic search results with titles, snippets, and URLs.",
+      "author": "allo-official",
+      "type": "mcp",
+      "command": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "duckduckgo-mcp@latest"
+        ],
+        "env": {}
+      },
+      "tools": [],
+      "permissions": [
+        "search",
+        "network"
+      ],
+      "required_env": [],
+      "optional_env": [],
+      "credentials": [],
+      "homepage": "https://duckduckgo.com",
+      "notes": "No API key required. Ready to use after install.",
+      "source": "marketplace"
+    },
+    {
+      "id": "code-sandbox",
+      "name": "code-sandbox",
+      "version": "1.0.0",
+      "description": "Secure, isolated code execution environment for running Python, JavaScript, and shell scripts. Supports file I/O, package installation, and long-running processes with configurable timeouts.",
+      "author": "allo-official",
+      "type": "mcp",
+      "command": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "code-sandbox-mcp@latest"
+        ],
+        "env": {
+          "SANDBOX_TIMEOUT": "30"
+        }
+      },
+      "tools": [],
+      "permissions": [
+        "code-execution",
+        "sandbox"
+      ],
+      "required_env": [],
+      "optional_env": [],
+      "credentials": [],
+      "homepage": "",
+      "notes": "No API key required. Ready to use after install.",
       "source": "marketplace"
     }
   ]
