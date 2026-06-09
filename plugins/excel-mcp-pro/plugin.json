@@ -1,0 +1,62 @@
+{
+  "id": "excel-mcp-pro",
+  "name": "excel-mcp-pro",
+  "version": "1.0.0",
+  "description": "Feature-rich Excel MCP server with formula read/write, style formatting, tables, and sheet copy. Bundles Python + openpyxl in a Node.js launcher.",
+  "author": "allo-official",
+  "type": "mcp",
+  "command": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@negokaz/excel-mcp-server"
+    ],
+    "env": {
+      "EXCEL_MCP_PAGING_CELLS_LIMIT": "4000"
+    }
+  },
+  "tools": [
+    {
+      "name": "excel_describe_sheets",
+      "description": "List all sheet information of a specified Excel file."
+    },
+    {
+      "name": "excel_read_sheet",
+      "description": "Read values from an Excel sheet with pagination. Optionally return formulas or cell style information."
+    },
+    {
+      "name": "excel_write_to_sheet",
+      "description": "Write values or formulas (any cell starting with '=') to an Excel sheet. Can create a new sheet or write to an existing one."
+    },
+    {
+      "name": "excel_create_table",
+      "description": "Create a named table over a range in an Excel sheet."
+    },
+    {
+      "name": "excel_copy_sheet",
+      "description": "Copy an existing sheet to a new sheet within the same workbook."
+    },
+    {
+      "name": "excel_format_range",
+      "description": "Format a cell range with per-cell styles: borders, fonts, fills, number formats, decimal places."
+    },
+    {
+      "name": "excel_screen_capture",
+      "description": "Take a screenshot of a sheet range. Windows only — the call will fail on macOS/Linux."
+    }
+  ],
+  "permissions": [
+    "filesystem-read",
+    "filesystem-write",
+    "excel-read",
+    "excel-write",
+    "excel-formulas",
+    "excel-formatting"
+  ],
+  "required_env": [],
+  "optional_env": [],
+  "credentials": [],
+  "homepage": "https://www.npmjs.com/package/@negokaz/excel-mcp-server",
+  "notes": "The npm package bundles a Python runtime + openpyxl (~105MB unpacked). No separate Python install needed, but the first launch is slower. This server does not enforce a workspace path — every tool takes fileAbsolutePath from the agent, so pair it with filesystem-tools bound to ALLO_WORKSPACE_PATH if sandboxing is required.",
+  "source": "marketplace"
+}

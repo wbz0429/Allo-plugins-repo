@@ -1,0 +1,44 @@
+{
+  "id": "excel-mcp-go",
+  "name": "excel-mcp-go",
+  "version": "1.0.0",
+  "description": "Lightweight Go-based MCP server for reading and writing xlsx/xlsm/xltx/xltm and CSV files. Cross-platform native binary with no Node/Python runtime required.",
+  "author": "allo-official",
+  "type": "mcp",
+  "command": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@xuzan/excel-mcp"
+    ],
+    "env": {}
+  },
+  "tools": [
+    {
+      "name": "read_excel",
+      "description": "Read an xlsx/xlsm/xltx/xltm file and return data as JSON."
+    },
+    {
+      "name": "read_csv",
+      "description": "Read a CSV file and return data as JSON."
+    },
+    {
+      "name": "write_excel",
+      "description": "Write JSON data to an xlsx or CSV file. Correctly formats integers and floats to avoid scientific notation."
+    }
+  ],
+  "permissions": [
+    "filesystem-read",
+    "filesystem-write",
+    "excel-read",
+    "excel-write",
+    "csv-read",
+    "csv-write"
+  ],
+  "required_env": [],
+  "optional_env": [],
+  "credentials": [],
+  "homepage": "https://www.npmjs.com/package/@xuzan/excel-mcp",
+  "notes": "Ships as a native Go binary via npm; no Python or Node runtime required at install time. Ideal as a lightweight fallback to the heavier Node/Python Excel MCPs.",
+  "source": "marketplace"
+}

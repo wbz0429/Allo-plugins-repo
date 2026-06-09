@@ -1,0 +1,54 @@
+{
+  "id": "excel-mcp",
+  "name": "excel-mcp",
+  "version": "1.0.0",
+  "description": "Read, write, and format xlsx/xls spreadsheets from AI agents via MCP. Node.js based with full read/write/format/sheet management support.",
+  "author": "allo-official",
+  "type": "mcp",
+  "command": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@itkmoon/excel-mcp"
+    ],
+    "env": {
+      "EXCEL_ALLOW_WRITE": "true",
+      "WORK_DIR": "$ALLO_WORKSPACE_PATH"
+    }
+  },
+  "tools": [
+    {
+      "name": "read_excel",
+      "description": "Read a worksheet or a specific range (e.g. A1:C100) from an xlsx/xls file. Optionally include formulas and formatting details."
+    },
+    {
+      "name": "write_excel",
+      "description": "Write data to an xlsx file. Supports overwrite, append, and update modes, with optional headers and a custom start cell."
+    },
+    {
+      "name": "format_excel",
+      "description": "Apply font, fill, border, alignment, and number format (currency, percent, date) to a cell range."
+    },
+    {
+      "name": "manage_sheets",
+      "description": "List, create, rename, copy, or delete worksheets inside an xlsx workbook."
+    },
+    {
+      "name": "get_file_info",
+      "description": "Get workbook metadata including size, sheet list, sheet row/column counts, and last modified time."
+    }
+  ],
+  "permissions": [
+    "filesystem-read",
+    "filesystem-write",
+    "excel-read",
+    "excel-write",
+    "workspace-only"
+  ],
+  "required_env": [],
+  "optional_env": [],
+  "credentials": [],
+  "homepage": "https://www.npmjs.com/package/@itkmoon/excel-mcp",
+  "notes": "WORK_DIR is injected by Allo at runtime and confines file operations to the current workspace. EXCEL_ALLOW_WRITE=true enables create/modify/format. Do not point WORK_DIR at a home directory or filesystem root.",
+  "source": "marketplace"
+}

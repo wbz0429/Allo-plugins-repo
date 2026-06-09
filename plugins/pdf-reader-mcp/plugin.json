@@ -1,0 +1,32 @@
+{
+  "id": "pdf-reader-mcp",
+  "name": "pdf-reader-mcp",
+  "version": "1.0.0",
+  "description": "Read text, images, and metadata from PDF files via a single read_pdf tool. Parallel page processing, Y-coordinate content ordering, and absolute/relative path support.",
+  "author": "allo-official",
+  "type": "mcp",
+  "command": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@sylphx/pdf-reader-mcp"
+    ],
+    "env": {}
+  },
+  "tools": [
+    {
+      "name": "read_pdf",
+      "description": "Extract text, images, and metadata from one or more PDF files. Supports page ranges, Y-coordinate content ordering, and configurable per-call flags (full text, metadata, page count, images)."
+    }
+  ],
+  "permissions": [
+    "filesystem-read",
+    "pdf-read"
+  ],
+  "required_env": [],
+  "optional_env": [],
+  "credentials": [],
+  "homepage": "https://www.npmjs.com/package/@sylphx/pdf-reader-mcp",
+  "notes": "Read-only. Useful for letting agents read PDF reports that were exported from Excel. Pair with filesystem-tools bound to ALLO_WORKSPACE_PATH to keep path access sandboxed.",
+  "source": "marketplace"
+}
