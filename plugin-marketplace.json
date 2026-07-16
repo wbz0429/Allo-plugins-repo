@@ -11,11 +11,19 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@playwright/mcp"],
+        "args": [
+          "-y",
+          "@playwright/mcp@0.0.78"
+        ],
         "env": {}
       },
       "tools": [],
-      "permissions": ["browser", "network", "screenshots", "local-web-targets"],
+      "permissions": [
+        "browser",
+        "network",
+        "screenshots",
+        "local-web-targets"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
@@ -32,7 +40,10 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-github"],
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github@2025.4.8"
+        ],
         "env": {
           "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_TOKEN"
         }
@@ -44,7 +55,9 @@
         "repository-metadata",
         "repository-write"
       ],
-      "required_env": ["GITHUB_TOKEN"],
+      "required_env": [
+        "GITHUB_TOKEN"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -58,31 +71,6 @@
       ],
       "homepage": "https://github.com/modelcontextprotocol/servers",
       "notes": "Requires GITHUB_TOKEN before runtime use. Install does not validate or use the token.",
-      "source": "marketplace"
-    },
-    {
-      "id": "filesystem-tools",
-      "name": "filesystem-tools",
-      "version": "1.0.0",
-      "description": "Workspace-bounded filesystem operations through MCP.",
-      "author": "allo-official",
-      "type": "mcp",
-      "command": {
-        "command": "npx",
-        "args": [
-          "-y",
-          "@modelcontextprotocol/server-filesystem",
-          "$ALLO_WORKSPACE_PATH"
-        ],
-        "env": {}
-      },
-      "tools": [],
-      "permissions": ["filesystem-read", "filesystem-write", "workspace-only"],
-      "required_env": [],
-      "optional_env": [],
-      "credentials": [],
-      "homepage": "https://github.com/modelcontextprotocol/servers",
-      "notes": "ALLO_WORKSPACE_PATH is injected by Allo at runtime. Do not point this plugin at a home directory or filesystem root.",
       "source": "marketplace"
     },
     {
@@ -166,7 +154,9 @@
         "user-analytics",
         "audit-logs"
       ],
-      "required_env": ["DFCODE_API_KEY"],
+      "required_env": [
+        "DFCODE_API_KEY"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -191,14 +181,22 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "tavily-mcp@latest"],
+        "args": [
+          "-y",
+          "tavily-mcp@0.2.21"
+        ],
         "env": {
-          "TAVILY_API_KEY": ""
+          "TAVILY_API_KEY": "$TAVILY_API_KEY"
         }
       },
       "tools": [],
-      "permissions": ["search", "network"],
-      "required_env": ["TAVILY_API_KEY"],
+      "permissions": [
+        "search",
+        "network"
+      ],
+      "required_env": [
+        "TAVILY_API_KEY"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -223,14 +221,22 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "firecrawl-mcp@latest"],
+        "args": [
+          "-y",
+          "firecrawl-mcp@3.22.3"
+        ],
         "env": {
-          "FIRECRAWL_API_KEY": ""
+          "FIRECRAWL_API_KEY": "$FIRECRAWL_API_KEY"
         }
       },
       "tools": [],
-      "permissions": ["web-scraping", "network"],
-      "required_env": ["FIRECRAWL_API_KEY"],
+      "permissions": [
+        "web-scraping",
+        "network"
+      ],
+      "required_env": [
+        "FIRECRAWL_API_KEY"
+      ],
       "optional_env": [],
       "credentials": [
         {
@@ -250,32 +256,28 @@
       "id": "jina-ai-reader",
       "name": "jina-ai-reader",
       "version": "1.0.0",
-      "description": "Extract clean, readable content from any URL using Jina AI's Reader API. Returns markdown-formatted text optimized for LLM consumption with support for PDFs and dynamic pages.",
+      "description": "Extract clean, readable Markdown from any URL. Runs the official MCP fetch server locally — no API key required.",
       "author": "allo-official",
       "type": "mcp",
       "command": {
-        "command": "npx",
-        "args": ["-y", "jina-mcp@latest"],
-        "env": {
-          "JINA_API_KEY": ""
-        }
+        "command": "uvx",
+        "args": [
+          "--from",
+          "mcp-server-fetch==2026.7.10",
+          "mcp-server-fetch"
+        ],
+        "env": {}
       },
       "tools": [],
-      "permissions": ["web-reading", "network"],
-      "required_env": ["JINA_API_KEY"],
-      "optional_env": [],
-      "credentials": [
-        {
-          "key": "JINA_API_KEY",
-          "label": "Jina AI API Key",
-          "description": "API key for Jina AI Reader service.",
-          "required": true,
-          "secret": true,
-          "docs_url": "https://jina.ai/reader"
-        }
+      "permissions": [
+        "web-reading",
+        "network"
       ],
-      "homepage": "https://jina.ai",
-      "notes": "Requires JINA_API_KEY before runtime use.",
+      "required_env": [],
+      "optional_env": [],
+      "credentials": [],
+      "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "notes": "Backed by mcp-server-fetch; the plugin id is kept as jina-ai-reader for compatibility with existing installs.",
       "source": "marketplace"
     },
     {
@@ -287,16 +289,22 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "duckduckgo-mcp@latest"],
+        "args": [
+          "-y",
+          "@oevortex/ddg_search@1.4.0"
+        ],
         "env": {}
       },
       "tools": [],
-      "permissions": ["search", "network"],
+      "permissions": [
+        "search",
+        "network"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
-      "homepage": "https://duckduckgo.com",
-      "notes": "No API key required. Ready to use after install.",
+      "homepage": "https://www.npmjs.com/package/@oevortex/ddg_search",
+      "notes": "Runs @oevortex/ddg_search (plain Node MCP server). No API key required.",
       "source": "marketplace"
     },
     {
@@ -308,13 +316,19 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "code-sandbox-mcp@latest"],
+        "args": [
+          "-y",
+          "code-sandbox-mcp@1.0.8"
+        ],
         "env": {
           "SANDBOX_TIMEOUT": "30"
         }
       },
       "tools": [],
-      "permissions": ["code-execution", "sandbox"],
+      "permissions": [
+        "code-execution",
+        "sandbox"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
@@ -331,7 +345,10 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@itkmoon/excel-mcp"],
+        "args": [
+          "-y",
+          "@itkmoon/excel-mcp@1.0.3"
+        ],
         "env": {
           "EXCEL_ALLOW_WRITE": "true",
           "WORK_DIR": "$ALLO_WORKSPACE_PATH"
@@ -382,7 +399,10 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@xuzan/excel-mcp"],
+        "args": [
+          "-y",
+          "@xuzan/excel-mcp@0.0.10"
+        ],
         "env": {}
       },
       "tools": [
@@ -423,7 +443,10 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@negokaz/excel-mcp-server"],
+        "args": [
+          "-y",
+          "@negokaz/excel-mcp-server@0.12.0"
+        ],
         "env": {
           "EXCEL_MCP_PAGING_CELLS_LIMIT": "4000"
         }
@@ -482,7 +505,10 @@
       "type": "mcp",
       "command": {
         "command": "npx",
-        "args": ["-y", "@sylphx/pdf-reader-mcp"],
+        "args": [
+          "-y",
+          "@sylphx/pdf-reader-mcp@3.0.14"
+        ],
         "env": {}
       },
       "tools": [
@@ -491,7 +517,10 @@
           "description": "Extract text, images, and metadata from one or more PDF files. Supports page ranges, Y-coordinate content ordering, and configurable per-call flags (full text, metadata, page count, images)."
         }
       ],
-      "permissions": ["filesystem-read", "pdf-read"],
+      "permissions": [
+        "filesystem-read",
+        "pdf-read"
+      ],
       "required_env": [],
       "optional_env": [],
       "credentials": [],
